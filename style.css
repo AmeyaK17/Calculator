@@ -1,0 +1,58 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #AE1438, #F5BCBA);
+}
+
+.calculater-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh; /*coz by default grid does'nt take up the entire vertical height, so after 100vh, it takes 100% of vertical height*/
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px); /*minmax defines the initial size and the later size with its two atrributes.*/
+}
+
+.calculater-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculater-grid > button:hover{
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
+.output{
+    grid-column: 1/-1; /*from column number 1 to colum -1 (which is basically the last column)*/
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: flex-end; /* we want items at the right hand side box the box */
+    justify-content: space-around; /* to stretch them inside the enire flex (space-betweeen) to make them come closer use (space-around)*/
+    flex-direction: column; /* initially the items were at the bottom, now they are at the right edge */
+    padding: 10px;
+    word-wrap: break-word; /* where we tell the program where to break the word so that we can wrap it on to the next line*/
+    word-break: break-all; /* we tell how and when to break, for e.g. here we are breaking the enire word */
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
